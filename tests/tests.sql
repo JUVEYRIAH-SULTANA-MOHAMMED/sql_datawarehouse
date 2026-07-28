@@ -82,3 +82,22 @@ where prd_cost IS NULL;
 
 SELECT * from bronze.crm_prd_info
 where prd_start_dt < prd_end_dt;
+
+
+
+
+
+-- tests for erp_cust_az12
+
+
+
+-- Lets get the diff types of values in gender
+select distinct gen
+from bronze.erp_cust_az12;
+
+
+-- getting invalud bdates
+SELECT DISTINCT
+bdate
+from bronze.erp_cust_az12
+where bdate < '1926-01-01' or bdate > getdate()
